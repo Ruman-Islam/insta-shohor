@@ -51,7 +51,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  const { userImage, image } = post;
+  const { userImage, image, comments } = post;
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -119,9 +119,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${comments[0]?.user}
                       </a>
-                      ${post.comments?.text}
+                      ${comments[0]?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
