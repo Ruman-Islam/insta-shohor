@@ -110,7 +110,7 @@
                         At first it creates Global Execution context.
                         Whenever it found a synchronous function and took it to call stack.
                         If any asynchronous function(setTimeout/fetch/Promise/async-await) or event listeners has found,
-                        JSsimply handover these async functions to browsers web API.
+                        JS simply handover these async functions to browsers web API.
                         After that call stack executes synchronous functions normally.
                         So basically the web API transfers these call back functions to the call back queue end of
                         timer.
