@@ -43,29 +43,16 @@ const displayContent = (text) => {
 //..............................//
 
 // Function of switching home, liked posts, reported posts //
-const switchTab = (id) => {
-  if (id === "posts") {
-    document.getElementById("posts").style.display = "grid";
-    document.getElementById("articles").style.display = "block";
-    document.getElementById("liked").style.display = "none";
-    document.getElementById("reported").style.display = "none";
-    document.getElementById("like-title").style.display = "none";
-    document.getElementById("report-title").style.display = "none";
-  } else if (id === "liked") {
-    document.getElementById("like-title").style.display = "block";
-    document.getElementById("liked").style.display = "block";
-    document.getElementById("articles").style.display = "none";
-    document.getElementById("report-title").style.display = "none";
-    document.getElementById("posts").style.display = "none";
-    document.getElementById("reported").style.display = "none";
+const switchTab = (style1, style2, style3, style4, style5, style6, id) => {
+  document.getElementById("posts").style.display = style1;  // Getting arguments from
+  document.getElementById("liked").style.display = style2;  // HTML file
+  document.getElementById("reported").style.display = style3; // where this 
+  document.getElementById("articles").style.display = style4;  // function is
+  document.getElementById("like-title").style.display = style5;  // invoking
+  document.getElementById("report-title").style.display = style6; // from.
+  if (id === "liked") {
     displayLikedPosts();
-  } else {
-    document.getElementById("report-title").style.display = "block";
-    document.getElementById("reported").style.display = "block";
-    document.getElementById("articles").style.display = "none";
-    document.getElementById("like-title").style.display = "none";
-    document.getElementById("posts").style.display = "none";
-    document.getElementById("liked").style.display = "none";
+  } else if (id === "reported") {
     displayReportedPosts();
   }
 };
