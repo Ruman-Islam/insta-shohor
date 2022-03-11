@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
             <a class="navbar-brand" href="#">Insta-Sohor</a>
@@ -46,6 +47,7 @@
             </div>
         </nav>
     </header>
+    <!-- Posts -->
     <main class="main container mx-auto p-3">
         <div id="posts">
         </div>
@@ -63,6 +65,42 @@
             </div>
         </div>
     </main>
+    <!-- Blogs -->
+    <section id="articles" class="main container mx-auto p-3" style="text-align: justify;">
+        <article>
+            <h3> Hows does JavaScript works?</h3>
+            Whenever we attach script file with html file and run, JavaScript source file received by the browser.
+            It sends the source code to JavaScript's engine which is installed inside browser.
+            The codes goes through several steps.
+            Firstly the codes gets by parser. Parser checks the code's syntax type errors line by line.
+            Secondly after parsing JS engine breaks the codes into relevant pieces for interpret the codes effectively.
+            Then the codes received by interpreter and interpret the codes into machine codes.
+            Finally the machine codes is sent to the system, then run by the system.
+        </article>
+        <article>
+            <h3>What does event loop do?</h3>
+            After receiving the script file JS’s engine starts to execute.
+            At first it creates Global Execution context.
+            Whenever it found a synchronous function and took it to call stack.
+            If any asynchronous function(setTimeout/fetch/Promise/async-await) or event listeners has found, JS simply
+            handover
+            these async functions to browsers web API.
+            After that call stack executes synchronous functions normally.
+            So basically the web API transfers these call back functions to the call back queue end of timer.
+            After executing all of the synchronous functions in the call stack then here comes the Event Loop.
+            Event loop checks that is the call stack empty or not. Then through loops on call back queue, take the
+            functions
+            to the call stack and starts execute.
+        </article>
+        <article>
+            <h3>Local storage vs Session storage</h3>
+            In local storage data are stored in the hard disk permanently until manually deleted.
+            But in session storage data are stored until close the tab.
+            Local storage is used to store user's some information for better experience like- login info, volume level
+            info etc.
+            But Session storage is used to store information like product info on shopping cart, password etc.
+        </article>
+    </section>
     <footer></footer>
 
     <!-- add javascript  file  -->

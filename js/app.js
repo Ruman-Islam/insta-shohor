@@ -46,6 +46,7 @@ const displayContent = (text) => {
 const switchTab = (id) => {
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
+    document.getElementById("articles").style.display = "block";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
     document.getElementById("like-title").style.display = "none";
@@ -53,6 +54,7 @@ const switchTab = (id) => {
   } else if (id === "liked") {
     document.getElementById("like-title").style.display = "block";
     document.getElementById("liked").style.display = "block";
+    document.getElementById("articles").style.display = "none";
     document.getElementById("report-title").style.display = "none";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
@@ -60,6 +62,7 @@ const switchTab = (id) => {
   } else {
     document.getElementById("report-title").style.display = "block";
     document.getElementById("reported").style.display = "block";
+    document.getElementById("articles").style.display = "none";
     document.getElementById("like-title").style.display = "none";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
