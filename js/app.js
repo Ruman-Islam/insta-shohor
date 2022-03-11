@@ -1,57 +1,74 @@
+// Predefined arrays for storing posts/post ids //
 let posts = [];
-
 const likedPostsId = [];
 const reportedPostsId = [];
+//.......................//
 
+// Function of filtering only liked posts //
 const getLikedPosts = () => {
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
+//......................//
 
+// Function of filtering only reported posts //
 const getReportedPosts = () => {
   return posts.filter((post) => reportedPostsId.includes(post.id));
 };
+//......................//
 
 const isLiked = (id) => {
   return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
+// Function of adding liked post's id to liked id's array //
 const addToLiked = (id) => {
   likedPostsId.push(id);
-  const newPosts = posts.filter(post => reportedPostsId.indexOf(post.id) == -1);
-  showPosts(newPosts);
+  const remainingPosts = posts.filter(post => !reportedPostsId.includes(post.id));
+  showPosts(remainingPosts);
 };
+//......................//
 
+// Function of adding reported post's id to reported id's array //
 const reportPost = (id) => {
   reportedPostsId.push(id);
   const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
   showPosts(remainingPosts);
 };
+//......................//
 
+// Function of display post's description based on condition //
 const displayContent = (text) => {
   return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
+//..............................//
 
+// Function of switching home, liked posts, reported posts //
 const switchTab = (id) => {
-  // console.log(id);
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("like-title").style.display = "none";
+    document.getElementById("report-title").style.display = "none";
   } else if (id === "liked") {
+    document.getElementById("like-title").style.display = "block";
     document.getElementById("liked").style.display = "block";
+    document.getElementById("report-title").style.display = "none";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
-
     displayLikedPosts();
   } else {
-    document.getElementById("reported").style.display = "grid";
+    document.getElementById("report-title").style.display = "block";
+    document.getElementById("reported").style.display = "block";
+    document.getElementById("like-title").style.display = "none";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
-
     displayReportedPosts();
   }
 };
+//........................................//
 
+// Function of creating cards of posts //
 const createPost = (post) => {
   const { userImage, image, comments } = post;
   const div = document.createElement("article");
@@ -97,8 +114,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id
-    })">
+                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -113,7 +129,8 @@ const createPost = (post) => {
 
                     <span>Liked by
                       <a class="post__name--underline" href="#">user123</a> and
-                      <a href="#">73 others</a></span>
+                      <a href="#">73 others</a>
+                    </span>
                   </div>
 
                   <hr/>
@@ -133,16 +150,18 @@ const createPost = (post) => {
   return div;
 };
 
+// Function of show all the posts //
 const showPosts = (posts) => {
   const productsContainer = document.getElementById("posts");
-  productsContainer.innerHTML = "";
-
+  productsContainer.innerHTML = '';
   posts.forEach((post) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
   });
 };
+//......................//
 
+// Function of displaying only liked posts //
 const displayLikedPosts = () => {
   document.getElementById('liked').innerHTML = '';
   const likedPosts = getLikedPosts();
@@ -151,7 +170,9 @@ const displayLikedPosts = () => {
     document.getElementById("liked").appendChild(div);
   });
 };
+//......................//
 
+// Function of displaying only reported posts //
 const displayReportedPosts = () => {
   document.getElementById('reported').innerHTML = '';
   const reportedPosts = getReportedPosts();
@@ -160,11 +181,15 @@ const displayReportedPosts = () => {
     document.getElementById("reported").appendChild(div);
   });
 };
+//......................//
 
+// Function of load all the posts when page loading //
 const loadPosts = async () => {
   let data = await fetch('../data/posts.json');
   posts = await data.json();
   showPosts(posts);
 };
-
 loadPosts();
+//......................//
+
+// Thank You //

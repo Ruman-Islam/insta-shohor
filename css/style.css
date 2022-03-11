@@ -241,7 +241,13 @@ img {
 #liked{
   display: none;
 }
+#like-title {
+  display: none;
+}
 #reported{
+  display: none;
+}
+#report-title {
   display: none;
 }
 
@@ -256,3 +262,5 @@ img {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/* Thank You */
