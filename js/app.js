@@ -42,14 +42,15 @@ const displayContent = (text) => {
 };
 //..............................//
 
-// Function of switching home, liked posts, reported posts //
-const switchTab = (style1, style2, style3, style4, style5, style6, id) => {
-  document.getElementById("posts").style.display = style1;  // Getting arguments from
-  document.getElementById("liked").style.display = style2;  // HTML file
-  document.getElementById("reported").style.display = style3; // where this 
-  document.getElementById("articles").style.display = style4;  // function is
-  document.getElementById("like-title").style.display = style5;  // invoking
-  document.getElementById("report-title").style.display = style6; // from.
+// Function of Rendering home, liked posts, reported posts //
+const switchTab = (style1, style2, style3, style4, style5, style6, style7, id) => {
+  document.getElementById("posts").style.display = style1;  // Getting arguments
+  document.getElementById("liked").style.display = style2;  // from the
+  document.getElementById("reported").style.display = style3; // HTML file
+  document.getElementById("articles").style.display = style4;  // where this
+  document.getElementById("home-title").style.display = style5;  // function is
+  document.getElementById("like-title").style.display = style6;  // invoking
+  document.getElementById("report-title").style.display = style7;
   if (id === "liked") {
     displayLikedPosts();
   } else if (id === "reported") {
@@ -139,6 +140,7 @@ const createPost = (post) => {
       `;
   return div;
 };
+//......................//
 
 // Function of show all the posts //
 const showPosts = (posts) => {

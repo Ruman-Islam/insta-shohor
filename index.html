@@ -35,17 +35,17 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-link active" role="button"
-                        onclick="switchTab( 'grid', 'none', 'none', 'block', 'none', 'none' )">
+                        onclick="switchTab( 'grid', 'none', 'none', 'block', 'block', 'none', 'none' )">
                         <i class="fa-solid fa-house"></i>
                     </li>
 
                     <li class="nav-link active" role="button"
-                        onclick="switchTab( 'none', 'grid', 'none', 'none', 'block', 'none', 'liked' )">
+                        onclick="switchTab( 'none', 'grid', 'none', 'none', 'none', 'block', 'none', 'liked' )">
                         <i class="fa-solid fa-heart text-danger"></i>
                     </li>
 
                     <li class="nav-link active" role="button"
-                        onclick="switchTab( 'none', 'none', 'grid', 'none', 'none', 'block', 'reported' )">
+                        onclick="switchTab( 'none', 'none', 'grid', 'none', 'none', 'none', 'block', 'reported' )">
                         <i class="fa-solid fa-eye-slash"></i>
                     </li>
                 </ul>
@@ -54,17 +54,20 @@
     </header>
     <!-- Posts -->
     <main class="main container mx-auto p-3">
-        <div id="posts">
+        <div>
+            <h2 id="home-title" class="text-muted">Home</h2>
+            <div id="posts">
+            </div>
         </div>
         <div>
-            <h1 id="like-title">Liked posts</h1>
+            <h2 id="like-title" class="text-muted">Favorite posts</h2>
             <div id="liked">
 
             </div>
         </div>
 
         <div>
-            <h1 id="report-title">Reported posts</h1>
+            <h2 id="report-title" class="text-muted">Reported posts</h2>
             <div id="reported">
 
             </div>
@@ -74,7 +77,7 @@
     <br><br>
     <section id="articles">
         <section class="accordion main container mx-auto p-3" id="accordionExample">
-            <h3 class="text-center">Articles</h3>
+            <h3 class="text-center">Blogs</h3>
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
