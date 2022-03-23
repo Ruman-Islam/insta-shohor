@@ -1,4 +1,4 @@
-# Insta Shoro
+# Insta Shohor
 
 #### Repository: https://github.com/Ruman-Islam/insta-shohor
 
